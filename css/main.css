@@ -22,6 +22,11 @@
     background-color: #FFE8AD;
 }
 
+#gameContent {
+    background-image:  url("file://C:\Users\LABUSER\Documents\GitHub\Pairing-101\images\powerlines.png");
+    background-color:bisque;
+}
+
 #footer {
     background-color: #7ACCB1;
 }
