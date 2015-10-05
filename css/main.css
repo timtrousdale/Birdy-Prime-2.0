@@ -23,8 +23,10 @@
 }
 
 #gameContent {
-    background-image:  url("file://C:\Users\LABUSER\Documents\GitHub\Pairing-101\images\powerlines.png");
-    background-color:bisque;
+    background-image: url("/images/powerlines.png");
+    background-repeat: no-repeat;
+    width: 1224px;
+    height: 596px;
 }
 
 #footer {
