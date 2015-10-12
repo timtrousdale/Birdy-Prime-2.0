@@ -26,8 +26,38 @@
     background-image: url("/images/powerlines.png");
     background-repeat: no-repeat;
     background-size: contain;
-
     height: 320px;
+}
+
+.gameCell {
+
+}
+
+.gameCell img{
+
+
+    height: 36px;
+    width: 36px;
+
+}
+
+#row1 {
+    position: absolute;
+    top: 26px;
+    left: 198px;
+}
+
+#row2 {
+
+    position: absolute;
+    top: 86px;
+    left: 198px;
+}
+
+#row3 {
+    position: absolute;
+    top: 142px;
+    left: 198px;
 }
 
 #footer {
