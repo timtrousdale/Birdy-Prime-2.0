@@ -25,8 +25,9 @@
 #gameContent {
     background-image: url("/images/powerlines.png");
     background-repeat: no-repeat;
-    width: 1224px;
-    height: 596px;
+    background-size: contain;
+
+    height: 320px;
 }
 
 #footer {

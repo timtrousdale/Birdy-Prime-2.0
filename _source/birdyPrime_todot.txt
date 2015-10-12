@@ -1,0 +1,7 @@
+1.	position birds in proper location
+2.	get it online
+3.	add angular
+4.	support multiple pages
+5.	create js to randomize bird location
+6.	add UI to answer/reset screen
+7.	keep score
