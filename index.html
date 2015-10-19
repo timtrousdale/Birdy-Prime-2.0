@@ -7,16 +7,21 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 
 
 </head>
 
-<body>
+<body ng-app="birdApp" ng-controller="birdCtrl">
 
 
     <div id="header" class="container col-xs-12">
+<<<<<<< HEAD
         <h1>Birdy Prime Test</h1>
+=======
+        <h1>Birdy Prime {{1 +2 }}</h1>
+>>>>>>> refs/remotes/MLATC/master
     </div>
 
     <div id="headerBreak" class="container col-xs-12">
@@ -136,9 +141,45 @@
     <div id="footer" class="text-center container col-xs-12">
         <p>&#169;2015 - Birdy Prime</p>
     </div>
+<script>            var app = angular.module('myApp', []);
+            app.controller('customersCtrl', function ($scope, $http) {
+                $http.get("http://www.w3schools.com/angular/customers.php")
+                    .success(function (response) {
+                        $scope.names = response.records;
+                    });
+            });
+            var app = angular.module('birdApp', []);
+            app.controller('birdCtrl', function ($scope, $http) {
+                $http.get("http://www.w3schools.com/angular/customers.php")
+                    .success(function (response) {
+                        $scope.names = response.records;
+                    });
+            });
+            function createArray(length) {
+                var arr = new Array(length || 0),
+                    i = length;
+                if (arguments.length > 1) {
+                    var args = Array.prototype.slice.call(arguments, 1);
+                    while (i--) arr[length - 1 - i] = createArray.apply(this, args);
+                }
+                return arr;
+            }
+            var aBirds = [];
+            var nRows = 3;
+            var nColumns = 8;
+            var nChanceReduction = .25;
+            var nCount = 0;
+            $scope.aBirds = createArray(nRows, nColumns);
+            for (i = 0; i < aBirds.length; i++) {
+                for (j = 0; j < aBirds[i].length; j++) {
+                    aBirds[i][j] = Math.round((Math.random() - nChanceReduction));
+                }
+            }</script>
 
-
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js">
+    
+    
+    </script>
 </body>
 
 </html>
