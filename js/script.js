@@ -29,4 +29,5 @@ app.controller('birdCtrl', function () {
             vm.aBirds[i][j] = Math.round((Math.random() - nChanceReduction));
         }
     }
+    console.log(vm.aBirds);
 });

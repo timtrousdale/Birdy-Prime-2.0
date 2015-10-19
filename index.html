@@ -19,8 +19,11 @@
 
     <div id="header" class="container col-xs-12">
 
-        <h1>{{BC.aBirds}}</h1>
-
+        <h1>Birdy Prime {{1 + 1 + ".0"}}</h1>
+        <h2>{{BC.aBirds}}</h2>
+        
+<table><tr><td>asdf</td></tr></table>
+        
     </div>
 
 
@@ -41,98 +44,12 @@
         <div id="gameContent">
             <img id="bg_image" src="images/powerlines_sm.png" alt="powerline image">
             <table>
-                <tr id="row1">
-                    <td class="gameCell">
-                        <img src="images/bird_pink_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/blank.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_green_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/blank.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_green_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/blank.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/blank.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/blank.png" alt="" />
-                    </td>
+
+                <tr ng-repeat="row in BC.aBirds">
+                    <td ng-repeat="bird in row">{{bird}</td>
+
                 </tr>
 
-
-                <tr id="row2">
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_red_xs.png" alt="" />
-                    </td>
-                </tr>
-                <tr id="row3">
-                    <td class="gameCell">
-                        <img src="images/bird_yellow_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_yellow_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_yellow_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/blank.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_yellow_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/blank.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_yellow_xs.png" alt="" />
-                    </td>
-                    <td class="gameCell">
-                        <img src="images/bird_yellow_xs.png" alt="" />
-                    </td>
-                </tr>
             </table>
         </div>
     </div>
