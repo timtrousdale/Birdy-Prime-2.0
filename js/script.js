@@ -3,6 +3,7 @@
 var app = angular.module('birdApp', []);
 app.controller('birdController', function () {
     var vm = this;
+    var imagesArray = ["bird_red_xs.png", "bird_green_xs.png", "bird_pink_xs.png", "bird_yellow_xs.png"];
 
     function createArray(length) {
         var arr = new Array(length || 0),
@@ -16,6 +17,10 @@ app.controller('birdController', function () {
         return arr;
     }
 
+    function pickBird() {
+        var num = Math.floor(Math.random() * imagesArray.length);
+        return imagesArray[num];
+    }
 
     var nRows = 3;
     var nColumns = 12;

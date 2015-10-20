@@ -1,8 +1,10 @@
-1.	position birds in proper location
-2.	get it online
-3.	add angular
-5.	create js to randomize bird location
-52.  write some JS code that tells the computer how to display birds in locations relative to the array of 1's and 0's that we have created.
-6.	add UI to answer/reset screen
-7.	keep score
-4.	support multiple pages
+position birds in proper location
+get it online
+add angular
+create js to randomize bird location
+pass in row id
+fill random array with bird(random color) or blank
+add UI to answer/reset screen
+keep score
+support multiple pages
+
