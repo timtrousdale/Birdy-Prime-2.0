@@ -9,27 +9,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="js/script.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-
-
 </head>
 
-<body ng-app="birdApp" ng-controller="birdCtrl as BC">
-
+<body ng-app="birdApp" ng-controller="birdController as birdCtrl">
 
     <div id="header" class="container col-xs-12">
-
         <h1>Birdy Prime {{1 + 1 + ".0"}}</h1>
-        <h2>{{BC.aBirds}}</h2>
-        
-<table><tr><td>asdf</td></tr></table>
-        
+        <!--                <h2>{{birdCtrl.aBirds}}</h2>-->
+
     </div>
 
-
-
-    <div id="headerBreak" class="container col-xs-12">
-    </div>
+    <div id="headerBreak" class="container col-xs-12"></div>
 
     <div id="sidebar" class="container col-xs-2">
         <a href="about.html">About</a>
@@ -43,14 +33,31 @@
     <div id="mainContent" class="container col-xs-10">
         <div id="gameContent">
             <img id="bg_image" src="images/powerlines_sm.png" alt="powerline image">
+
+
+
             <table>
 
-                <tr ng-repeat="row in BC.aBirds">
-                    <td ng-repeat="bird in row">{{bird}</td>
-
+                <tr ng-repeat="info in birdCtrl.data.id" id="{{info.value}}">
+                    <td ng-repeat="row in info.row">{{row.value}}</td>
+                
+                
                 </tr>
 
+                <!--
+                <tr  ng-repeat="row in birdCtrl.aBirds" id="{{row.value}}">
+                    <td class="gameCell" ng-repeat="bird in row">
+                        <p>{{row.value}}</p>
+                        <p>{{bird.value}}</p>
+                    </td>
+                    <img src="images/bird_red_xs.png" alt="" />
+                </tr>
+-->
+
+
             </table>
+
+
         </div>
     </div>
 
