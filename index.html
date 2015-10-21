@@ -14,7 +14,7 @@
 <body ng-app="birdApp" ng-controller="birdController as birdCtrl">
 
     <div id="header" class="container col-xs-12">
-        <h1>Birdy Prime {{1 + 1 + ".0"}}: {{birdCtrl.birdCount + " " + birdCtrl.prime}}</h1>
+        <h1>Birdy Prime {{1 + 1 + ".0"}}</h1>
         <!--                <h2>{{birdCtrl.aBirds}}</h2>-->
 
     </div>
@@ -34,31 +34,23 @@
         <div id="gameContent">
             <img id="bg_image" src="images/powerlines_sm.png" alt="powerline image">
 
-
-
             <table>
-
                 <tr ng-repeat="info in birdCtrl.data" id="{{info.value}}">
                     <td ng-repeat="row in info.row" class="gameCell">
                         <img src="images/{{row.value}}" alt="" />
                     </td>
-
-
                 </tr>
-
-                <!--
-                <tr  ng-repeat="row in birdCtrl.aBirds" id="{{row.value}}">
-                    <td class="gameCell" ng-repeat="bird in row">
-                        <p>{{row.value}}</p>
-                        <p>{{bird.value}}</p>
-                    </td>
-                    <img src="images/bird_red_xs.png" alt="" />
-                </tr>
--->
-
-
             </table>
-
+<span>Is Prime?</span>
+            <button>
+                True
+            </button>
+            <button>
+                False
+            </button>
+            <span>
+  count: {{birdCtrl.birdCount}}
+</span>
 
         </div>
     </div>
