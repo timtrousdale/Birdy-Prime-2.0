@@ -22,31 +22,43 @@ app.controller('birdController', function () {
         return imagesArray[num];
     }
 
+    function birdChance() {
+        return Math.round(Math.random() - nChanceReduction);
+    }
+
+    function displayImage() {
+        if (birdChance()) {
+            return pickBird();
+        } else {
+            return "blank.png";
+        }
+
+    }
+
     var nRows = 3;
     var nColumns = 12;
     var nChanceReduction = 0.25;
-    vm.aBirds = createArray(nRows, nColumns);
+    var aBirds = createArray(nRows, nColumns);
 
-    for (var i = 0; i < vm.aBirds.length; i++) {
-        for (var j = 0; j < vm.aBirds[i].length; j++) {
-            vm.aBirds[i][j] = {
-                value: Math.round((Math.random() - nChanceReduction))
+    for (var i = 0; i < aBirds.length; i++) {
+        for (var j = 0; j < aBirds[i].length; j++) {
+            aBirds[i][j] = {
+                value: displayImage()
             };
+
         }
     }
 
-    vm.data = {
-        id: [{
-            value: "row1",
-            row: this.aBirds[0]
+    vm.data = [{
+        value: "row1",
+        row: aBirds[0]
         }, {
-            value: "row2",
-            row: this.aBirds[1]
+        value: "row2",
+        row: aBirds[1]
         }, {
-            value: "row3",
-            row: this.aBirds[2]
-        }],
-    };
+        value: "row3",
+        row: aBirds[2]
+        }];
 
     /*    vm.aBirds.unshift({
             value: "row3"
@@ -57,5 +69,5 @@ app.controller('birdController', function () {
         vm.aBirds.unshift({
             value: "row1"
         });*/
-    console.log(vm.aBirds);
+    console.log(vm.data);
 });

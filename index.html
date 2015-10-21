@@ -38,8 +38,8 @@
 
             <table>
 
-                <tr ng-repeat="info in birdCtrl.data.id" id="{{info.value}}">
-                    <td ng-repeat="row in info.row">{{row.value}}</td>
+                <tr ng-repeat="info in birdCtrl.data" id="{{info.value}}">
+                    <td ng-repeat="row in info.row" class="gameCell"><img src="images/{{row.value}}" alt="" /></td>
                 
                 
                 </tr>
