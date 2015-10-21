@@ -5,6 +5,38 @@ app.controller('birdController', function () {
     var vm = this;
     var imagesArray = ["bird_red_xs.png", "bird_green_xs.png", "bird_pink_xs.png", "bird_yellow_xs.png"];
 
+    vm.birdCount = 0;
+    vm.data = [];
+    var nRows = 3;
+    var nColumns = 12;
+    var nChanceReduction = 0.30;
+    //0-0.5 chance range; at 0.5 Birds will not populate
+    var aBirds = createArray(nRows, nColumns);
+
+    function birds() {
+        for (var i = 0; i < aBirds.length; i++) {
+            for (var j = 0; j < aBirds[i].length; j++) {
+                aBirds[i][j] = {
+                    value: displayImage()
+                };
+            }
+        }
+    }
+
+    function createData(rows) {
+        for (var i = 0; i < rows; i++) {
+            var row = "row" + (i + 1);
+            vm.data.push({
+                value: row,
+                row: aBirds[i]
+            });
+        }
+
+    }
+
+    createData(nRows);
+    console.log(vm.data);
+
     function createArray(length) {
         var arr = new Array(length || 0),
             i = length;
@@ -28,46 +60,26 @@ app.controller('birdController', function () {
 
     function displayImage() {
         if (birdChance()) {
+            vm.birdCount++;
+            //console.log(primeTime(vm.birdCount));
             return pickBird();
         } else {
             return "blank.png";
         }
-
     }
 
-    var nRows = 3;
-    var nColumns = 12;
-    var nChanceReduction = 0.25;
-    var aBirds = createArray(nRows, nColumns);
-
-    for (var i = 0; i < aBirds.length; i++) {
-        for (var j = 0; j < aBirds[i].length; j++) {
-            aBirds[i][j] = {
-                value: displayImage()
-            };
-
+    function primeTime(num) {
+        if (num > 3) {
+            if (num % 2 && num % 3 !== 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
         }
     }
 
-    vm.data = [{
-        value: "row1",
-        row: aBirds[0]
-        }, {
-        value: "row2",
-        row: aBirds[1]
-        }, {
-        value: "row3",
-        row: aBirds[2]
-        }];
+    birds();
 
-    /*    vm.aBirds.unshift({
-            value: "row3"
-        });
-        vm.aBirds.unshift({
-            value: "row2"
-        });
-        vm.aBirds.unshift({
-            value: "row1"
-        });*/
-    console.log(vm.data);
 });

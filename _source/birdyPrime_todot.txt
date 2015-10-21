@@ -4,6 +4,8 @@ add angular
 create js to randomize bird location
 pass in row id
 fill random array with bird(random color) or blank
+write prime logic to check prime number of birds
+add refresh button (true/false)
 add UI to answer/reset screen
 keep score
 support multiple pages

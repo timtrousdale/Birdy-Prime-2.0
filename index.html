@@ -14,7 +14,7 @@
 <body ng-app="birdApp" ng-controller="birdController as birdCtrl">
 
     <div id="header" class="container col-xs-12">
-        <h1>Birdy Prime {{1 + 1 + ".0"}}</h1>
+        <h1>Birdy Prime {{1 + 1 + ".0"}}: {{birdCtrl.birdCount + " " + birdCtrl.prime}}</h1>
         <!--                <h2>{{birdCtrl.aBirds}}</h2>-->
 
     </div>
@@ -39,9 +39,11 @@
             <table>
 
                 <tr ng-repeat="info in birdCtrl.data" id="{{info.value}}">
-                    <td ng-repeat="row in info.row" class="gameCell"><img src="images/{{row.value}}" alt="" /></td>
-                
-                
+                    <td ng-repeat="row in info.row" class="gameCell">
+                        <img src="images/{{row.value}}" alt="" />
+                    </td>
+
+
                 </tr>
 
                 <!--
