@@ -18,18 +18,18 @@
     padding: 12px;
 }
 
-#mainContent, #gameUI {
-        zoom: 100%;
-        -moz-transform: scale(0.5);
-    
+#mainContent,
+#gameUI {
+    zoom: 100%;
+    -moz-transform: scale(0.5);
+margin: auto;
     background-color: #FFE8AD;
 }
 
 #gameContent {
-/*    background-image: url("/images/powerlines.png");*/
+    /*    background-image: url("/images/powerlines.png");*/
     background-repeat: no-repeat;
     background-size: contain;
-
 }
 
 #bg_image {
@@ -37,10 +37,7 @@
     height: 360px;
 }
 
-.gameCell {
-
-
-}
+.gameCell {}
 
 .gameCell img {
     width: 36px;

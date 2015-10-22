@@ -22,20 +22,21 @@
 
     <div id="headerBreak" class="container col-xs-12"></div>
 
-    <div id="sidebar" class="container col-xs-2">
+<!--    <div id="sidebar" class="container col-xs-2">
         <a href="about.html">About</a>
         <a href="contact.html">
             <br> Contact</a>
         <a href="help.html">
             <br> Help</a>
         <br>
+    </div>-->
+
+    <div id="gameUI" class="container col-xs-12">
+    <h1><b>SCORE:</b> {{userScore}}</h1>
+        <p><b><em>Birdy Prime:</em></b> Are there a prime amount of birds?</p>
     </div>
 
-    <div id="gameUI" class="container col-xs-10">
-    <h1>SCORE: {{userScore}}</h1>
-    </div>
-
-    <div id="mainContent" class="container col-xs-10">
+    <div id="mainContent" class="container col-xs-12">
         <div id="gameContent">
             <img id="bg_image" src="images/powerlines_sm.png" alt="powerline image">
 
@@ -48,9 +49,8 @@
             </table>
 
             <form ng-submit="score()">
-                Enter text and hit enter:
-                <input type="submit" value="true" ng-click="userTruth = true" />
-                <input type="submit" value="false" ng-click="userTruth = false" />
+                <button class="btn-lg btn-success" type="submit" value="true" ng-click="userTruth = true">True!</button>
+                <button class="btn-lg btn-danger" type="submit" value="false" ng-click="userTruth = false">False.</button>
             </form>
 
         </div>
