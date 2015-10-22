@@ -1,19 +1,22 @@
-/*globals angular*/
+/*globals angular */
 
 var app = angular.module('birdApp', []);
-app.controller('birdController', function () {
-    var vm = this;
+app.controller('birdController', ['$scope', function ($scope) {
+    //    var vm = this;
     var imagesArray = ["bird_red_xs.png", "bird_green_xs.png", "bird_pink_xs.png", "bird_yellow_xs.png"];
 
-    vm.birdCount = 0;
-    vm.data = [];
+    $scope.birdCount = 0;
+    $scope.data = [];
     var nRows = 3;
     var nColumns = 12;
     var nChanceReduction = 0.30;
+    $scope.BP = "Birdy Prime!";
     //0-0.5 chance range; at 0.5 Birds will not populate
     var aBirds = createArray(nRows, nColumns);
 
-    function birds() {
+    $scope.birds = function () {
+        console.log("birds was executed");
+        $scope.birdCount = 0;
         for (var i = 0; i < aBirds.length; i++) {
             for (var j = 0; j < aBirds[i].length; j++) {
                 aBirds[i][j] = {
@@ -21,12 +24,24 @@ app.controller('birdController', function () {
                 };
             }
         }
-    }
+        $scope.birdTruth = primeTime($scope.birdCount);
+    };
+
+    $scope.list = [];
+    $scope.userTruth = "???";
+    $scope.score = function () {
+        if ($scope.userTruth == $scope.birdTruth) {
+            $scope.list.push("Winner!");
+            $scope.text = "true or false?";
+            $scope.birds();
+        }
+
+    };
 
     function createData(rows) {
         for (var i = 0; i < rows; i++) {
             var row = "row" + (i + 1);
-            vm.data.push({
+            $scope.data.push({
                 value: row,
                 row: aBirds[i]
             });
@@ -35,7 +50,7 @@ app.controller('birdController', function () {
     }
 
     createData(nRows);
-    console.log(vm.data);
+    console.log($scope.data);
 
     function createArray(length) {
         var arr = new Array(length || 0),
@@ -60,8 +75,9 @@ app.controller('birdController', function () {
 
     function displayImage() {
         if (birdChance()) {
-            vm.birdCount++;
-            //console.log(primeTime(vm.birdCount));
+            $scope.birdCount++;
+            $scope.birdTotalCount++;
+            //console.log(primeTime($scope.birdCount));
             return pickBird();
         } else {
             return "blank.png";
@@ -71,15 +87,15 @@ app.controller('birdController', function () {
     function primeTime(num) {
         if (num > 3) {
             if (num % 2 && num % 3 !== 0) {
-                return true;
+                return "true";
             } else {
-                return false;
+                return "false";
             }
         } else {
-            return true;
+            return "true";
         }
     }
 
-    birds();
+    $scope.birds();
 
-});
+}]);

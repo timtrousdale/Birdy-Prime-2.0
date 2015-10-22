@@ -9,13 +9,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="js/script.js"></script>
+
 </head>
 
 <body ng-app="birdApp" ng-controller="birdController as birdCtrl">
 
     <div id="header" class="container col-xs-12">
-        <h1>Birdy Prime {{1 + 1 + ".0"}}</h1>
-        <!--                <h2>{{birdCtrl.aBirds}}</h2>-->
+        <h1>Birdy Prime {{1 + 1 + ".0"}} {{userScore}}</h1>
+        <!--                <h2>{{aBirds}}</h2>-->
 
     </div>
 
@@ -35,22 +36,30 @@
             <img id="bg_image" src="images/powerlines_sm.png" alt="powerline image">
 
             <table>
-                <tr ng-repeat="info in birdCtrl.data" id="{{info.value}}">
+                <tr ng-repeat="info in data" id="{{info.value}}">
                     <td ng-repeat="row in info.row" class="gameCell">
                         <img src="images/{{row.value}}" alt="" />
                     </td>
                 </tr>
             </table>
-<span>Is Prime?</span>
-            <button>
+
+            <!--<span>Is Prime?</span>
+            <button  type="submit" ng-click="birds()" ng-submit="userTruth = true">
                 True
             </button>
-            <button>
+            <button type="submit" ng-click="userTruth = false">
                 False
             </button>
             <span>
-  count: {{birdCtrl.birdCount}}
-</span>
+  count: {{birdCount}}
+</span>-->
+
+            <form ng-submit="submit()">
+                Enter text and hit enter:
+                <input type="text" ng-model="userTruth" name="userTruth" />
+                <input type="submit" id="submit" value="Submit" />
+                <pre>list={{list}}</pre>
+            </form>
 
         </div>
     </div>
