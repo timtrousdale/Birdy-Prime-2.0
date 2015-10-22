@@ -8,5 +8,9 @@ write prime logic to check prime number of birds
 add refresh button (true/false)
 add UI to answer/reset screen
 keep score
+add educations, on YES and NO explain why success/fail
+prebuild levels for easy, more fun counting, dice shapes, letter shapes, etc
+create level editor
+put UI, including buttons on top of game board?
 support multiple pages
 
