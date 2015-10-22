@@ -18,7 +18,7 @@
     padding: 12px;
 }
 
-#mainContent {
+#mainContent, #gameUI {
         zoom: 100%;
         -moz-transform: scale(0.5);
     

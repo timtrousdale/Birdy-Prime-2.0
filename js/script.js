@@ -15,7 +15,7 @@ app.controller('birdController', ['$scope', function ($scope) {
     var aBirds = createArray(nRows, nColumns);
 
     $scope.birds = function () {
-        console.log("birds was executed");
+       // console.log("birds was executed");
         $scope.birdCount = 0;
         for (var i = 0; i < aBirds.length; i++) {
             for (var j = 0; j < aBirds[i].length; j++) {
@@ -28,13 +28,18 @@ app.controller('birdController', ['$scope', function ($scope) {
     };
 
     $scope.list = [];
-    $scope.userTruth = "???";
+    $scope.userScore = 0;
     $scope.score = function () {
-        if ($scope.userTruth == $scope.birdTruth) {
-            $scope.list.push("Winner!");
-            $scope.text = "true or false?";
+        if ($scope.userTruth === $scope.birdTruth) {
+            $scope.userScore++;
             $scope.birds();
+
+
+        } else {
+            $scope.birds();
+            $scope.userScore--;
         }
+
 
     };
 
@@ -87,12 +92,12 @@ app.controller('birdController', ['$scope', function ($scope) {
     function primeTime(num) {
         if (num > 3) {
             if (num % 2 && num % 3 !== 0) {
-                return "true";
+                return true;
             } else {
-                return "false";
+                return false;
             }
         } else {
-            return "true";
+            return true;
         }
     }
 
