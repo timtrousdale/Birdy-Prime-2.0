@@ -33,7 +33,7 @@
 
     <div id="gameUI" class="container col-xs-12">
     <h1><b>SCORE:</b> {{userScore}}</h1>
-        <p><b><em>Birdy Prime:</em></b> Count all the birds, is that a prime number?</p>
+        <p><b><em>Birdy Prime:</em></b> Count all the {{trump}} birds, is that a prime number?</p>
     </div>
 
     <div id="mainContent" class="container col-xs-12">
@@ -43,7 +43,7 @@
             <table>
                 <tr ng-repeat="info in data" id="{{info.value}}">
                     <td ng-repeat="row in info.row" class="gameCell">
-                        <img src="images/{{row.value}}" alt="" />
+                        <img ng-src="images/bird_{{row.value}}_xs.png" alt="" />
                     </td>
                 </tr>
             </table>

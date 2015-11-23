@@ -3,8 +3,8 @@
 var app = angular.module('birdApp', []);
 app.controller('birdController', ['$scope', function ($scope) {
     //    var vm = this;
-    var imagesArray = ["bird_red_xs.png", "bird_green_xs.png", "bird_pink_xs.png", "bird_yellow_xs.png"];
-
+    var imagesArray = ["red", "green", "pink", "yellow"];
+    $scope.trump = "";
     $scope.birdCount = 0;
     $scope.data = [];
     var nRows = 3;
@@ -15,8 +15,9 @@ app.controller('birdController', ['$scope', function ($scope) {
     var aBirds = createArray(nRows, nColumns);
 
     $scope.birds = function () {
-       // console.log("birds was executed");
+        // console.log("birds was executed");
         $scope.birdCount = 0;
+        $scope.trump = pickBird();
         for (var i = 0; i < aBirds.length; i++) {
             for (var j = 0; j < aBirds[i].length; j++) {
                 aBirds[i][j] = {
@@ -43,7 +44,7 @@ app.controller('birdController', ['$scope', function ($scope) {
 
     };
 
-    function createData(rows) {
+    $scope.createData = function (rows) {
         for (var i = 0; i < rows; i++) {
             var row = "row" + (i + 1);
             $scope.data.push({
@@ -54,8 +55,7 @@ app.controller('birdController', ['$scope', function ($scope) {
 
     }
 
-    createData(nRows);
-    console.log($scope.data);
+    $scope.createData(nRows);
 
     function createArray(length) {
         var arr = new Array(length || 0),
@@ -71,7 +71,11 @@ app.controller('birdController', ['$scope', function ($scope) {
 
     function pickBird() {
         var num = Math.floor(Math.random() * imagesArray.length);
-        return imagesArray[num];
+        if (imagesArray[num] !== $scope.trump) {
+            return imagesArray[num];
+        } else {
+            return "blank"
+        }
     }
 
     function birdChance() {
@@ -79,26 +83,31 @@ app.controller('birdController', ['$scope', function ($scope) {
     }
 
     function displayImage() {
+
         if (birdChance()) {
             $scope.birdCount++;
             $scope.birdTotalCount++;
-            //console.log(primeTime($scope.birdCount));
-            return pickBird();
+            return $scope.trump;
         } else {
-            return "blank.png";
+            return pickBird();
         }
     }
 
     function primeTime(num) {
-        if (num > 3) {
-            if (num % 2 && num % 3 !== 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return true;
+        if (num < 2) {
+            return false
         }
+        if (num != Math.round(num)) {
+            return false
+        }
+        var isPrime = true;
+        for (var i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                isPrime = false
+            }
+        }
+        return isPrime;
+
     }
 
     $scope.birds();
